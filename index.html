@@ -106,7 +106,7 @@ span{
   function so(){
         var a=document.querySelectorAll('marquee');
       for(i=0;i<6;i++){
-        var q=parseInt(Math.random()*180+1)
+        var q=parseInt(Math.random()*100+1)
         if(q%2==0){
           a[i].setAttribute('behavior','scroll');
         }
@@ -120,7 +120,7 @@ span{
 
       var a=document.querySelectorAll('marquee');
       for(i=0;i<6;i++){
-        var q=parseInt(Math.random()*180+1)
+        var q=parseInt(Math.random()*100+1)
         if(q%2==0){
           a[i].setAttribute('behavior','scroll');
         }
@@ -136,6 +136,8 @@ function start(){
     document.querySelector('.maingame').style.display='none';
     document.querySelector('.st').textContent='Start';
     document.querySelector('.st').style.color='Green';
+      document.querySelector('.catched').textContent="Catched Apple:0";
+  document.querySelector('.total').textContent="Total Apples:0";
     console.log(op)
     clearInterval(op);
     ta=15;
@@ -147,7 +149,7 @@ function start(){
     document.querySelector('.st').textContent='End';
     document.querySelector('.st').style.color='red';
 op=setInterval(qwe,1000);
-console.log(op*9)
+
 
   }
  
@@ -159,11 +161,12 @@ function qwe(){
 }
      
 function main(){
-  document.querySelector('.catched').textContent="Catched Apple:"+ca++;
-  document.querySelector('.total').textContent="Total Apples:"+ta--;
+  ca=ca+1;ta=ta-1;
+  document.querySelector('.catched').textContent="Catched Apple:"+ca;
+  document.querySelector('.total').textContent="Total Apples:"+ta;
 }
 setInterval(function go(){
-if(ca>15){
+if(ca>=15){
 ca=15;
 ta=0;
 }
