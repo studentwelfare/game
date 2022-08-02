@@ -99,6 +99,13 @@ span{
    </div>
     
     <script>
+         var at=prompt('Enter a level(1-1000)');
+       if(at>1000){
+        at=1000;
+       }
+       if(at<1){
+        at=1;
+       }
       var ca=0;
       var ta=15;
       var op=1;
@@ -106,7 +113,7 @@ span{
   function so(){
         var a=document.querySelectorAll('marquee');
       for(i=0;i<6;i++){
-        var q=parseInt(Math.random()*100+1)
+        var q=parseInt(Math.random()*at+1)
         if(q%2==0){
           a[i].setAttribute('behavior','scroll');
         }
@@ -120,7 +127,7 @@ span{
 
       var a=document.querySelectorAll('marquee');
       for(i=0;i<6;i++){
-        var q=parseInt(Math.random()*100+1)
+        var q=parseInt(Math.random()*at+1)
         if(q%2==0){
           a[i].setAttribute('behavior','scroll');
         }
