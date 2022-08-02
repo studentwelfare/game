@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      *{
+        margin: 0;padding: 0;
+      }
+      body{
+        background-image: url(https://image.winudf.com/v2/image1/c29mdGZyZWUubGl3cC5hbmltZUxvdmUyODA0X3NjcmVlbl8zXzE2MjAxNzc1NTFfMDY4/screen-3.jpg?fakeurl=1&type=.webp);
+     background-repeat: no-repeat;
+     background-size: 100vw 100vh;
+     display: flex;
+     height: 100vh;
+     width: 100vw;
+     align-items: center;
+   
+      }
+ .game-screen{
+  overflow: hidden;
+  height: 75vh;
+  width: 50vw;
+  background-color: rgb(88, 237, 237,0.7);
+  border: 5px solid black;
+  border-radius:5% 5% 0px 0px ;
+  padding: 0px 0px 10px 0px;
+
+  margin: auto;
+ }
+ .score{
+  width: 100%;
+  height: 20%;
+  background-color: pink;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .maingame{
+  height: 75%;
+  margin-top: 2%;
+  display: flex;
+  display: none;
+ }
+marquee{
+  margin: 0px 5px;
+ 
+}
+img{
+  width: 100%;
+  height: 10%;
+}
+span{
+  margin: 4%;
+  font-size:smaller;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+@media(max-width:600px){
+  .game-screen{
+    width: 100vw;
+  }
+}
+
+
+    </style>
+  </head>
+  <body>
+   
+   <div class="game-screen">
+    <div class="score">
+      <span class="catched">Catched Apple:0</span>
+      <span class="total">Total Apples:15</span>
+      <span class="time-remain">Time Remaining:120</span>
+      <span style="color:green; cursor: pointer;" class="st" onclick="start()">Start</span>
+
+    </div>
+
+    <div class="maingame">
+      <marquee behavior="alternate" direction="down" class="apple" width="15%" height="100%"><span onclick="main()"><img  onclick="main()" src="https://acegif.com/wp-content/gifs/apple-42.gif"></span></marquee>
+      <marquee behavior="alternate" direction="down" class="apple"  width="15%" height="100%"><span onclick="main()"><img onclick="main()"  src="https://acegif.com/wp-content/gifs/apple-42.gif"></span></marquee>
+      <marquee behavior="alternate" direction="down" class="apple"  width="15%" height="100%"><span onclick="main()"><img onclick="main()"  src="https://acegif.com/wp-content/gifs/apple-42.gif"></span></marquee>
+      <marquee behavior="alternate" direction="down" class="apple"  width="15%" height="100%"><span onclick="main()"><img onclick="main()"  src="https://acegif.com/wp-content/gifs/apple-42.gif"></span></marquee>
+      <marquee behavior="alternate" direction="down" class="apple"  width="15%" height="100%"><span onclick="main()"><img onclick="main()"  src="https://acegif.com/wp-content/gifs/apple-42.gif"></span></marquee>
+      <marquee behavior="alternate" direction="down" class="apple"  width="15%" height="100%"><span onclick="main()"><img onclick="main()"  src="https://acegif.com/wp-content/gifs/apple-42.gif"></span></marquee>
+
+  
+    </div>
+    
+    
+   </div>
+    
+    <script>
+      var ca=0;
+      var ta=15;
+      var op=1;
+      var time=120;
+  function so(){
+        var a=document.querySelectorAll('marquee');
+      for(i=0;i<6;i++){
+        var q=parseInt(Math.random()*180+1)
+        if(q%2==0){
+          a[i].setAttribute('behavior','scroll');
+        }
+        else{
+          a[i].setAttribute('behavior','alternate');
+
+        }
+        a[i].setAttribute('scrollAmount',q);
+      }
+      };
+
+      var a=document.querySelectorAll('marquee');
+      for(i=0;i<6;i++){
+        var q=parseInt(Math.random()*180+1)
+        if(q%2==0){
+          a[i].setAttribute('behavior','scroll');
+        }
+        else{
+          a[i].setAttribute('behavior','alternate');
+
+        }
+        a[i].setAttribute('scrollAmount',q);
+      }
+function start(){
+  if(document.querySelector('.maingame').style.display=='flex'){
+    document.querySelector('.time-remain').textContent="Time Remaining: 0"
+    document.querySelector('.maingame').style.display='none';
+    document.querySelector('.st').textContent='Start';
+    document.querySelector('.st').style.color='Green';
+    console.log(op)
+    clearInterval(op);
+    ta=15;
+    ca=0;
+    so();
+  }
+  else{
+    document.querySelector('.maingame').style.display='flex';
+    document.querySelector('.st').textContent='End';
+    document.querySelector('.st').style.color='red';
+op=setInterval(qwe,1000);
+console.log(op*9)
+
+  }
+ 
+};
+function qwe(){
+  
+  time=time-1;
+  document.querySelector('.time-remain').textContent="Remaining-Time:"+time;
+}
+     
+function main(){
+  document.querySelector('.catched').textContent="Catched Apple:"+ca++;
+  document.querySelector('.total').textContent="Total Apples:"+ta--;
+}
+setInterval(function go(){
+if(ca>15){
+ca=15;
+ta=0;
+}
+},100);
+    </script>
+  </body>
+</html>
